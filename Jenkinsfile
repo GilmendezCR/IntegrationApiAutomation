@@ -5,8 +5,8 @@ pipeline {
         // Define NodeJS tool with the name 'NodeJS'
         nodejs 'NodeJS'
 
-        // Define Xvfb tool with the name 'Xvfbs'
-        xvfb 'Xvfbs'
+        // Define Xvfb tool with the correct name 'Xvfb'
+        xvfb 'Xvfb'
     }
 
     stages {
