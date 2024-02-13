@@ -27,7 +27,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'npx cypress install'
+                    
                     // Install Node.js and Cypress dependencies
                     sh 'npm install'
                 }
@@ -37,6 +37,8 @@ pipeline {
         stage('Run Cypress tests') {
             steps {
                 script {
+                    sh 'xvfb-run --auto-servernum npx cypress run'
+                    sh 'npx cypress install'
                     // Run Cypress tests
                     sh 'npm run cy:run'
                 }
