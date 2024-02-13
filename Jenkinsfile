@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Debug') {
+    steps {
+        script {
+            sh 'node --version'
+            sh 'npm --version'
+        }
+    }
+}
+
         stage('Checkout') {
             steps {
                 script {
