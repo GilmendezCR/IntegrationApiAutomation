@@ -2,20 +2,14 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS',
-        Xvfb 'Xvfbs'
+        // Define NodeJS tool with the name 'NodeJS'
+        nodejs 'NodeJS'
+
+        // Define Xvfb tool with the name 'Xvfbs'
+        xvfb 'Xvfbs'
     }
 
     stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    // This should now work if NodeJS is properly configured
-                    sh 'npm install'
-                }
-            }
-        }
-
         stage('Checkout') {
             steps {
                 script {
@@ -25,11 +19,10 @@ pipeline {
             }
         }
 
-        stage('Install dependencies') {
+        stage('Install Dependencies') {
             steps {
                 script {
-                    
-                    // Install Node.js and Cypress dependencies
+                    // This should now work if NodeJS is properly configured
                     sh 'npm install'
                 }
             }
@@ -38,7 +31,8 @@ pipeline {
         stage('Run Cypress tests') {
             steps {
                 script {
-                   Xvfb('npx cypress run')
+                    // Run Cypress tests with Xvfb
+                    sh 'xvfb-run --auto-servernum npx cypress run'
                 }
             }
         }
