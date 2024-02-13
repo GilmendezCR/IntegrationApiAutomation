@@ -27,6 +27,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+                    sh 'npx cypress install'
                     // Install Node.js and Cypress dependencies
                     sh 'npm install'
                 }
