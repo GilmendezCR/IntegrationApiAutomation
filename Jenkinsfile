@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     // Run Cypress tests with Xvfb
-                    sh 'xvfb-run --auto-servernum npx cypress run'
+                    xvfbRun('npx cypress run')
                 }
             }
         }
