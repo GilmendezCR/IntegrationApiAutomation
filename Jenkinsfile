@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     tools {
-        // Define NodeJS tool with the name 'NodeJS'
+        
         nodejs 'NodeJS'
 
-        // Define Xvfb tool with the correct name 'Xvfb'
+        
         xvfb 'Xvfb'
     }
 
@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    // Checkout the source code
+                    
                     checkout scm
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // This should now work if NodeJS is properly configured
+                    
                     sh 'npm install'
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
         stage('Run Cypress tests') {
             steps {
                 script {
-                    // Run Cypress tests with Xvfb
+                    
                     xvfb('npx cypress run')
                 }
             }
