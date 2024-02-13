@@ -1,7 +1,20 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS'
+    }
+
     stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // This should now work if NodeJS is properly configured
+                    sh 'npm install'
+                }
+            }
+        }
+        stages {
         stage('Checkout') {
             steps {
                 script {
@@ -29,6 +42,7 @@ pipeline {
             }
         }
     }
+    }
 
     post {
         always {
@@ -37,3 +51,5 @@ pipeline {
         }
     }
 }
+
+
