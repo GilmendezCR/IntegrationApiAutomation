@@ -37,10 +37,7 @@ pipeline {
         stage('Run Cypress tests') {
             steps {
                 script {
-                    
-                    sh 'npx cypress install'
-                    // Run Cypress tests
-                    xvfbRun('npx cypress run')
+                   xvfbRun('npx cypress run')
                 }
             }
         }
