@@ -5,7 +5,7 @@ pipeline {
         nodejs 'NodeJS'
     }
 
-        stages {
+    stages {
         stage('Install Dependencies') {
             steps {
                 script {
@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-        stages {
+
         stage('Checkout') {
             steps {
                 script {
@@ -42,7 +42,6 @@ pipeline {
             }
         }
     }
-    }
 
     post {
         always {
@@ -51,5 +50,3 @@ pipeline {
         }
     }
 }
-
-
