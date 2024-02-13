@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     // Run Cypress tests with Xvfb
-                    xvfbRun('npx cypress run')
+                    xvfb('npx cypress run')
                 }
             }
         }
