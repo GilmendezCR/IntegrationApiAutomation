@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+    stages {
         stage('Checkout') {
             steps {
                 script {
@@ -13,8 +14,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'node --version'
-                    sh 'npm --version'
                     // Install Node.js and Cypress dependencies
                     sh 'npm install'
                 }
@@ -37,4 +36,4 @@ pipeline {
             deleteDir()
         }
     }
-
+}
