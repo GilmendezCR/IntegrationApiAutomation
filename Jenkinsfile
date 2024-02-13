@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'
+        nodejs 'NodeJS',
+        Xvfb 'Xvfbs'
     }
 
     stages {
@@ -37,7 +38,7 @@ pipeline {
         stage('Run Cypress tests') {
             steps {
                 script {
-                   xvfbRun('npx cypress run')
+                   Xvfb('npx cypress run')
                 }
             }
         }
