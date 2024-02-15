@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     
-                    xvfb('npx cypress run')
+                    sh 'npx cypress run'
                 }
             }
         }
